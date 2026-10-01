@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { obtenerPlanta } from "@/data/planos";
+import { obtenerPlanta, plantas, type Planta } from "@/data/planos";
 import {
   puntosPorPiso,
   type Piso,
@@ -15,6 +15,7 @@ const ETIQUETAS_TIPO: Record<TipoPuntoInteres, string> = {
   laboratorio: "Laboratorio",
   direccion: "Dirección",
   comedor: "Comedor",
+  sala: "Sala",
   banos: "Baños",
   entrada: "Entrada",
   escalera: "Escaleras",
@@ -27,11 +28,16 @@ const COLOR_TIPO: Record<TipoPuntoInteres, string> = {
   laboratorio: "#f5a623",
   direccion: "#2f855a",
   comedor: "#0ea5e9",
+  sala: "#7c3aed",
   banos: "#64748b",
   entrada: "#16a34a",
   escalera: "#94a3b8",
   patio: "#65a30d",
 };
+
+function pisoDePlanta(planta: Planta): Piso {
+  return planta.id as Piso;
+}
 
 function puntoAlPorcentaje(punto: PuntoInteres, viewBox: { anchoPx: number; altoPx: number }) {
   return {
@@ -45,12 +51,45 @@ export function MapaLiceo({
 }: {
   piso?: Piso;
 }) {
-  const planta = obtenerPlanta("planta-baja");
-  const puntos = puntosPorPiso(piso);
+  const [pisoSeleccionado, setPisoSeleccionado] = useState<Piso>(piso);
   const [seleccionado, setSeleccionado] = useState<PuntoInteres | null>(null);
+
+  const planta = obtenerPlanta(pisoSeleccionado);
+  const puntos = puntosPorPiso(pisoSeleccionado);
 
   return (
     <div className="flex flex-col gap-4">
+      {plantas.length > 1 && (
+        <div
+          role="group"
+          aria-label="Cambiar de piso"
+          className="flex flex-wrap gap-2"
+        >
+          {plantas.map((opcion) => {
+            const pisoOpcion = pisoDePlanta(opcion);
+            const activo = pisoSeleccionado === pisoOpcion;
+            return (
+              <button
+                key={opcion.id}
+                type="button"
+                aria-pressed={activo}
+                onClick={() => {
+                  setPisoSeleccionado(pisoOpcion);
+                  setSeleccionado(null);
+                }}
+                className={`rounded-full px-4 py-1.5 text-sm font-medium transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-zinc-900 dark:focus-visible:ring-white ${
+                  activo
+                    ? "bg-zinc-900 text-white dark:bg-white dark:text-zinc-900"
+                    : "bg-white text-zinc-600 hover:bg-zinc-100 dark:bg-zinc-900 dark:text-zinc-300 dark:hover:bg-zinc-800"
+                }`}
+              >
+                {opcion.nombre}
+              </button>
+            );
+          })}
+        </div>
+      )}
+
       <div
         className="relative w-full overflow-hidden rounded-xl border border-zinc-200 bg-white shadow-sm"
         style={{ aspectRatio: `${planta.viewBox.anchoPx} / ${planta.viewBox.altoPx}` }}
