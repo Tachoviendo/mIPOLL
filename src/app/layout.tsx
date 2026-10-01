@@ -3,7 +3,7 @@ import type { ReactNode } from "react";
 import { Geist, Geist_Mono } from "next/font/google";
 import { AuthProvider } from "@/lib/auth";
 import { MensajeriaProvider } from "@/lib/mensajeria-context";
-import { Topbar } from "@/components/Topbar";
+import { Shell } from "@/components/Shell";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -30,8 +30,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <body className="min-h-full flex flex-col">
         <AuthProvider>
           <MensajeriaProvider>
-            <Topbar />
-            <main className="flex-1">{children}</main>
+            <Shell>{children}</Shell>
           </MensajeriaProvider>
         </AuthProvider>
       </body>

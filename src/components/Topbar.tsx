@@ -3,14 +3,9 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useMensajeria } from "@/lib/mensajeria-context";
+import { NAV_ITEMS, esRutaActiva } from "@/lib/navegacion";
 
-const NAV_ITEMS = [
-  { href: "/lineas", label: "Líneas" },
-  { href: "/anuncios", label: "Anuncios" },
-  { href: "/calendario", label: "Calendario" },
-];
-
-export function Topbar() {
+export function Topbar({ onMenuClick }: { onMenuClick: () => void }) {
   const { totalNoLeidos } = useMensajeria();
   const pathname = usePathname();
 
@@ -20,7 +15,22 @@ export function Topbar() {
         className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3"
         aria-label="Navegación principal"
       >
-        <div className="flex items-center gap-6">
+        <div className="flex items-center gap-3 lg:gap-6">
+          <button
+            type="button"
+            onClick={onMenuClick}
+            className="inline-flex items-center justify-center rounded-md p-1.5 text-zinc-600 hover:bg-zinc-100 dark:text-zinc-400 dark:hover:bg-zinc-800 lg:hidden"
+            aria-label="Abrir menú"
+            aria-controls="menu-lateral"
+          >
+            <svg className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+              <path
+                fillRule="evenodd"
+                d="M2 4.75A.75.75 0 0 1 2.75 4h14.5a.75.75 0 0 1 0 1.5H2.75A.75.75 0 0 1 2 4.75Zm0 10.5a.75.75 0 0 1 .75-.75h7.5a.75.75 0 0 1 0 1.5h-7.5a.75.75 0 0 1-.75-.75ZM2 10a.75.75 0 0 1 .75-.75h14.5a.75.75 0 0 1 0 1.5H2.75A.75.75 0 0 1 2 10Z"
+                clipRule="evenodd"
+              />
+            </svg>
+          </button>
           <Link
             href="/"
             className="flex items-center gap-2 font-semibold text-brand-800 dark:text-brand-200"
@@ -28,22 +38,24 @@ export function Topbar() {
             <span className="h-8 w-8 rounded-lg bg-brand-600" aria-hidden="true" />
             <span>MiPol</span>
           </Link>
-          <div className="hidden md:flex md:gap-1">
-            <Link href="/lineas" className="rounded-lg px-3 py-2 text-sm font-medium text-zinc-600 hover:bg-black/[.04] dark:text-zinc-400 dark:hover:bg-white/[.06]">
-              Líneas
-            </Link>
-            <Link href="/anuncios" className="rounded-lg px-3 py-2 text-sm font-medium text-zinc-600 hover:bg-black/[.04] dark:text-zinc-400 dark:hover:bg-white/[.06]">
-              Anuncios
-            </Link>
-            <Link href="/calendario" className="rounded-lg px-3 py-2 text-sm font-medium text-zinc-600 hover:bg-black/[.04] dark:text-zinc-400 dark:hover:bg-white/[.06]">
-              Calendario
-            </Link>
-            <Link href="/mapa" className="rounded-lg px-3 py-2 text-sm font-medium text-zinc-600 hover:bg-black/[.04] dark:text-zinc-400 dark:hover:bg-white/[.06]">
-              Mapa
-            </Link>
-            <Link href="/grupos" className="rounded-lg px-3 py-2 text-sm font-medium text-zinc-600 hover:bg-black/[.04] dark:text-zinc-400 dark:hover:bg-white/[.06]">
-              Grupos
-            </Link>
+          <div className="hidden lg:flex lg:gap-1">
+            {NAV_ITEMS.map((item) => {
+              const isActive = esRutaActiva(pathname, item.href);
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  aria-current={isActive ? "page" : undefined}
+                  className={`rounded-lg px-3 py-2 text-sm font-medium ${
+                    isActive
+                      ? "bg-black/[.06] text-zinc-950 dark:bg-white/[.1] dark:text-zinc-50"
+                      : "text-zinc-600 hover:bg-black/[.04] dark:text-zinc-400 dark:hover:bg-white/[.06]"
+                  }`}
+                >
+                  {item.label}
+                </Link>
+              );
+            })}
           </div>
         </div>
 
