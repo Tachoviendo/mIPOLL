@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { HistorialConversacion } from "@/components/HistorialConversacion";
+import { ConversacionInteractiva } from "@/components/ConversacionInteractiva";
 import {
   conversaciones,
   obtenerConversacion,
@@ -44,17 +44,11 @@ export default async function ConversacionPage({
           ← Volver a conversaciones
         </Link>
 
-        <HistorialConversacion
+        <ConversacionInteractiva
           conversacion={conversacion}
-          mensajes={mensajes}
+          mensajesIniciales={mensajes}
           usuarioActualId={USUARIO_ACTUAL_ID}
         />
-
-        {mensajes.length === 0 && (
-          <p className="text-center text-sm text-zinc-500">
-            No hay mensajes en esta conversación.
-          </p>
-        )}
       </main>
     </div>
   );
