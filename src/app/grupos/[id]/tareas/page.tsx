@@ -2,8 +2,6 @@ import Link from "next/link";
 
 import {
   crearTareaAction,
-  LIMITE_CONSIGNA_TAREA,
-  LIMITE_TITULO_TAREA,
 } from "@/app/grupos/actions";
 import { EstadoVacio } from "@/components/EstadoVacio";
 import {
@@ -13,6 +11,8 @@ import {
   obtenerSeguimientoTarea,
   obtenerTareasDeGrupo,
   usuarioSimuladoDeRol,
+  LIMITE_CONSIGNA_TAREA,
+  LIMITE_TITULO_TAREA,
 } from "@/data/grupos";
 import { obtenerRolActual } from "@/lib/rol-actual";
 import { puedeCrearTareas, puedeVerGrupos } from "@/lib/roles";

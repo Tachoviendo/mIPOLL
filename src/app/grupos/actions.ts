@@ -4,6 +4,11 @@ import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 
 import {
+  LIMITE_CONSIGNA_TAREA,
+  LIMITE_CONTENIDO,
+  LIMITE_DESCRIPCION_GRUPO,
+  LIMITE_NOMBRE_GRUPO,
+  LIMITE_TITULO_TAREA,
   agregarComentario,
   agregarPublicacion,
   crearGrupo,
@@ -25,11 +30,6 @@ import {
   puedeVerGrupos,
 } from "@/lib/roles";
 
-export const LIMITE_NOMBRE_GRUPO = 60;
-export const LIMITE_DESCRIPCION_GRUPO = 300;
-export const LIMITE_CONTENIDO = 4000;
-export const LIMITE_TITULO_TAREA = 100;
-export const LIMITE_CONSIGNA_TAREA = 4000;
 
 /**
  * Docente o administración da de alta un espacio de trabajo con nombre,

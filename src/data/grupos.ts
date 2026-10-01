@@ -20,6 +20,12 @@
 import { usuarios, type Usuario } from "@/data/usuarios";
 import type { Rol } from "@/lib/roles";
 
+export const LIMITE_NOMBRE_GRUPO = 60;
+export const LIMITE_DESCRIPCION_GRUPO = 300;
+export const LIMITE_CONTENIDO = 4000;
+export const LIMITE_TITULO_TAREA = 100;
+export const LIMITE_CONSIGNA_TAREA = 4000;
+
 export type Grupo = {
   id: string;
   nombre: string;

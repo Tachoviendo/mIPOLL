@@ -2,7 +2,6 @@ import Link from "next/link";
 
 import {
   comentarPublicacionAction,
-  LIMITE_CONTENIDO,
   publicarEnGrupoAction,
 } from "@/app/grupos/actions";
 import { EstadoVacio } from "@/components/EstadoVacio";
@@ -14,6 +13,7 @@ import {
   obtenerPublicacionesDeGrupo,
   obtenerTareasDeGrupo,
   usuarioPorId,
+  LIMITE_CONTENIDO,
 } from "@/data/grupos";
 import { formatearFechaHora } from "@/lib/date";
 import { obtenerRolActual } from "@/lib/rol-actual";

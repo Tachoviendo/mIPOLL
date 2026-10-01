@@ -2,14 +2,14 @@ import Link from "next/link";
 
 import {
   crearGrupoAction,
-  LIMITE_DESCRIPCION_GRUPO,
-  LIMITE_NOMBRE_GRUPO,
 } from "@/app/grupos/actions";
 import {
   nombreDeUsuario,
   obtenerGrupo,
   obtenerGruposParaRol,
   usuarioSimuladoDeRol,
+  LIMITE_DESCRIPCION_GRUPO,
+  LIMITE_NOMBRE_GRUPO,
 } from "@/data/grupos";
 import { obtenerEstudiantes } from "@/data/usuarios";
 import { obtenerRolActual } from "@/lib/rol-actual";
