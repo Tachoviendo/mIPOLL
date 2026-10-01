@@ -120,6 +120,12 @@ export function MapaLiceo({
             </button>
           </div>
           <p className="text-sm text-zinc-600">{seleccionado.descripcion}</p>
+          {seleccionado.horario && (
+            <p className="text-sm text-zinc-600">
+              <span className="font-medium text-zinc-900">Horario: </span>
+              {seleccionado.horario}
+            </p>
+          )}
           <p className="text-xs uppercase tracking-wide text-zinc-400">
             {planta.nombre}
           </p>

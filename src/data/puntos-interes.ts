@@ -32,6 +32,7 @@ export type PuntoInteres = {
   coordenadas: { x: number; y: number };
   piso: Piso;
   descripcion: string;
+  horario?: string;
 };
 
 const punto = (
@@ -42,6 +43,7 @@ const punto = (
   y: number,
   piso: Piso,
   descripcion: string,
+  horario?: string,
 ): PuntoInteres => ({
   id,
   nombre,
@@ -49,6 +51,7 @@ const punto = (
   coordenadas: { x, y },
   piso,
   descripcion,
+  horario,
 });
 
 /**
@@ -58,10 +61,10 @@ const punto = (
 export const puntosDeInteresMock: PuntoInteres[] = [
   punto("poi-aula-1", "Aula 1", "aula", 192, 166, "planta-baja", "Aula de primer año de ciclo básico."),
   punto("poi-aula-4", "Aula 4", "aula", 628, 178, "planta-baja", "Aula de segundo año de ciclo básico."),
-  punto("poi-laboratorio", "Laboratorio de Física y Química", "laboratorio", 628, 303, "planta-baja", "Laboratorio equipado para prácticas."),
-  punto("poi-biblioteca", "Biblioteca", "biblioteca", 628, 428, "planta-baja", "Préstamo de libros y sala de lectura."),
-  punto("poi-direccion", "Dirección", "direccion", 628, 553, "planta-baja", "Secretaría y adscripción."),
-  punto("poi-comedor", "Comedor escolar", "comedor", 192, 466, "planta-baja", "Servicio de comedor al mediodía."),
+  punto("poi-laboratorio", "Laboratorio de Física y Química", "laboratorio", 628, 303, "planta-baja", "Laboratorio equipado para prácticas.", "Lunes a viernes de 07:30 a 18:00 (con reserva docente)"),
+  punto("poi-biblioteca", "Biblioteca", "biblioteca", 628, 428, "planta-baja", "Préstamo de libros y sala de lectura.", "Lunes a viernes de 07:30 a 21:00"),
+  punto("poi-direccion", "Dirección", "direccion", 628, 553, "planta-baja", "Secretaría y adscripción.", "Lunes a viernes de 07:30 a 21:00"),
+  punto("poi-comedor", "Comedor escolar", "comedor", 192, 466, "planta-baja", "Servicio de comedor al mediodía.", "Lunes a viernes de 10:30 a 14:00"),
   punto("poi-banos", "Baños", "banos", 192, 566, "planta-baja", "Baños de estudiantes y docentes."),
   punto("poi-entrada", "Entrada principal", "entrada", 410, 608, "planta-baja", "Acceso principal al liceo desde la calle."),
   punto("poi-escalera", "Escaleras", "escalera", 410, 164, "planta-baja", "Acceso a primer y segundo piso."),
