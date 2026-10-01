@@ -1,0 +1,108 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 688" role="img" aria-labelledby="tituloPlano descripcionPlano" font-family="system-ui, -apple-system, sans-serif">
+  <title id="tituloPlano">Primer Piso - Liceo 1° de Salto</title>
+  <desc id="descripcionPlano">Plano esquemático del primer piso del liceo. Cada zona tiene un identificador (p1-aula-5, p1-sala-informatica, etc.) y coordenadas en el viewBox (820 x 688) para superponer los puntos de interés. Escala aproximada: 1px ≈ 0,4 m.</desc>
+
+  <!-- Encabezado -->
+  <text x="24" y="34" font-size="18" font-weight="600" fill="#0f172a">Primer Piso - Liceo 1° de Salto</text>
+  <text x="24" y="52" font-size="11" fill="#64748b">Base del mapa interactivo · 1px ≈ 0,4 m (aproximado)</text>
+
+  <!-- Leyenda -->
+  <g font-size="11" fill="#334155">
+    <rect x="24" y="62" width="16" height="13" fill="#e8f1f9" stroke="#0f4c81" stroke-width="1.5" />
+    <text x="46" y="73">Aulas</text>
+    <rect x="112" y="62" width="16" height="13" fill="#fff1e0" stroke="#f5a623" stroke-width="1.5" />
+    <text x="134" y="73">Laboratorios</text>
+    <rect x="260" y="62" width="16" height="13" fill="#f3e8ff" stroke="#7c3aed" stroke-width="1.5" />
+    <text x="282" y="73">Salas</text>
+    <rect x="352" y="62" width="16" height="13" fill="#e6f6fd" stroke="#1b7fb0" stroke-width="1.5" />
+    <text x="374" y="73">Sala de estudio</text>
+    <rect x="492" y="62" width="16" height="13" fill="#f1f5f9" stroke="#64748b" stroke-width="1.5" />
+    <text x="514" y="73">Baños · Pasillo</text>
+  </g>
+
+  <!-- Rosa de los vientos -->
+  <g transform="translate(732, 88)">
+    <circle r="22" fill="none" stroke="#cbd5e1" stroke-width="1.5" />
+    <path d="M0 14 L-7 -14 L0 -6 L7 -14 Z" fill="#0f4c81" />
+    <text x="0" y="-28" text-anchor="middle" font-size="12" font-weight="600" fill="#0f4c81">N</text>
+  </g>
+
+  <!-- ================= COLUMNA IZQUIERDA ================= -->
+  <g id="p1-aula-5">
+    <rect x="28" y="116" width="328" height="100" fill="#e8f1f9" stroke="#0f4c81" stroke-width="2" />
+    <text x="192" y="162" text-anchor="middle" font-size="13" font-weight="600" fill="#0f4c81">Aula 5</text>
+  </g>
+  <g id="p1-aula-6">
+    <rect x="28" y="216" width="328" height="100" fill="#e8f1f9" stroke="#0f4c81" stroke-width="2" />
+    <text x="192" y="262" text-anchor="middle" font-size="13" font-weight="600" fill="#0f4c81">Aula 6</text>
+  </g>
+  <g id="p1-sala-informatica">
+    <rect x="28" y="316" width="328" height="100" fill="#fff1e0" stroke="#f5a623" stroke-width="2" />
+    <text x="192" y="358" text-anchor="middle" font-size="12" font-weight="600" fill="#c2410c">Sala de Informática</text>
+    <text x="192" y="376" text-anchor="middle" font-size="10" fill="#ea580c">Computación</text>
+  </g>
+  <g id="p1-sala-profesores">
+    <rect x="28" y="416" width="328" height="100" fill="#f3e8ff" stroke="#7c3aed" stroke-width="2" />
+    <text x="192" y="458" text-anchor="middle" font-size="12" font-weight="600" fill="#6d28d9">Sala de Profesores</text>
+    <text x="192" y="476" text-anchor="middle" font-size="10" fill="#8b5cf6">Docentes</text>
+  </g>
+  <g id="p1-banos">
+    <rect x="28" y="516" width="328" height="100" fill="#f1f5f9" stroke="#64748b" stroke-width="2" />
+    <text x="192" y="556" text-anchor="middle" font-size="12" font-weight="600" fill="#475569">Baños</text>
+    <text x="192" y="574" text-anchor="middle" font-size="10" fill="#64748b">Piso 1</text>
+  </g>
+
+  <!-- ================= COLUMNA DERECHA ================= -->
+  <g id="p1-aula-7">
+    <rect x="464" y="116" width="328" height="125" fill="#e8f1f9" stroke="#0f4c81" stroke-width="2" />
+    <text x="628" y="174" text-anchor="middle" font-size="13" font-weight="600" fill="#0f4c81">Aula 7</text>
+  </g>
+  <g id="p1-aula-8">
+    <rect x="464" y="241" width="328" height="125" fill="#e8f1f9" stroke="#0f4c81" stroke-width="2" />
+    <text x="628" y="300" text-anchor="middle" font-size="13" font-weight="600" fill="#0f4c81">Aula 8</text>
+  </g>
+  <g id="p1-sala-estudio">
+    <rect x="464" y="366" width="328" height="125" fill="#e6f6fd" stroke="#1b7fb0" stroke-width="2" />
+    <text x="628" y="424" text-anchor="middle" font-size="12" font-weight="600" fill="#1b7fb0">Sala de Estudio</text>
+    <text x="628" y="442" text-anchor="middle" font-size="10" fill="#2ca6e0">Silenciosa</text>
+  </g>
+  <g id="p1-laboratorio-idiomas">
+    <rect x="464" y="491" width="328" height="125" fill="#fff1e0" stroke="#f5a623" stroke-width="2" />
+    <text x="628" y="548" text-anchor="middle" font-size="12" font-weight="600" fill="#c2410c">Laboratorio de Idiomas</text>
+    <text x="628" y="566" text-anchor="middle" font-size="10" fill="#ea580c">Inglés</text>
+  </g>
+
+  <!-- ================= PASILLO Y SERVICIOS ================= -->
+  <g id="p1-escalera">
+    <rect x="360" y="100" width="100" height="128" fill="#f8fafc" stroke="#94a3b8" stroke-width="2" stroke-dasharray="6 4" />
+    <line x1="368" y1="108" x2="368" y2="210" stroke="#94a3b8" stroke-width="1.5" />
+    <line x1="380" y1="118" x2="380" y2="210" stroke="#94a3b8" stroke-width="1.5" />
+    <line x1="392" y1="118" x2="392" y2="210" stroke="#94a3b8" stroke-width="1.5" />
+    <line x1="404" y1="118" x2="404" y2="210" stroke="#94a3b8" stroke-width="1.5" />
+    <line x1="416" y1="118" x2="416" y2="210" stroke="#94a3b8" stroke-width="1.5" />
+    <line x1="428" y1="118" x2="428" y2="210" stroke="#94a3b8" stroke-width="1.5" />
+    <text x="410" y="134" text-anchor="middle" font-size="11" font-weight="600" fill="#475569">Escaleras</text>
+    <text x="410" y="148" text-anchor="middle" font-size="9" fill="#64748b">PB y 2º piso</text>
+  </g>
+
+  <g id="p1-pasillo">
+    <rect x="360" y="228" width="100" height="364" fill="#f8fafc" stroke="#94a3b8" stroke-width="2" />
+    <text x="410" y="480" text-anchor="middle" font-size="11" font-weight="600" fill="#475569" transform="rotate(90 410 480)">Pasillo central</text>
+  </g>
+
+  <!-- Puertas desde el pasillo -->
+  <g stroke="#64748b" stroke-width="2">
+    <line x1="356" y1="162" x2="360" y2="162" />
+    <line x1="356" y1="266" x2="360" y2="266" />
+    <line x1="356" y1="366" x2="360" y2="366" />
+    <line x1="356" y1="466" x2="360" y2="466" />
+    <line x1="356" y1="566" x2="360" y2="566" />
+    <line x1="464" y1="178" x2="460" y2="178" />
+    <line x1="464" y1="303" x2="460" y2="303" />
+    <line x1="464" y1="428" x2="460" y2="428" />
+    <line x1="464" y1="553" x2="460" y2="553" />
+  </g>
+
+  <!-- Muro exterior -->
+  <rect x="24" y="100" width="772" height="524" rx="6" fill="none" stroke="#475569" stroke-width="4" />
+</svg>

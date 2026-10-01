@@ -63,7 +63,49 @@ export const plantaBaja: Planta = {
   ],
 };
 
-export const plantas: Planta[] = [plantaBaja];
+export const primerPiso: Planta = {
+  id: "primer-piso",
+  nombre: "Primer Piso",
+  assetPath: "/planos/primer-piso.svg",
+  viewBox,
+  metrosPorPx: 0.4,
+  zonas: [
+    { id: "p1-aula-5", nombre: "Aula 5", categoria: "aula", x: 28, y: 116, anchoPx: 328, altoPx: 100 },
+    { id: "p1-aula-6", nombre: "Aula 6", categoria: "aula", x: 28, y: 216, anchoPx: 328, altoPx: 100 },
+    { id: "p1-sala-informatica", nombre: "Sala de Informática", categoria: "laboratorio", x: 28, y: 316, anchoPx: 328, altoPx: 100 },
+    { id: "p1-sala-profesores", nombre: "Sala de Profesores", categoria: "servicios", x: 28, y: 416, anchoPx: 328, altoPx: 100 },
+    { id: "p1-banos", nombre: "Baños", categoria: "banos", x: 28, y: 516, anchoPx: 328, altoPx: 100 },
+    { id: "p1-aula-7", nombre: "Aula 7", categoria: "aula", x: 464, y: 116, anchoPx: 328, altoPx: 125 },
+    { id: "p1-aula-8", nombre: "Aula 8", categoria: "aula", x: 464, y: 241, anchoPx: 328, altoPx: 125 },
+    { id: "p1-sala-estudio", nombre: "Sala de Estudio", categoria: "biblioteca", x: 464, y: 366, anchoPx: 328, altoPx: 125 },
+    { id: "p1-laboratorio-idiomas", nombre: "Laboratorio de Idiomas", categoria: "laboratorio", x: 464, y: 491, anchoPx: 328, altoPx: 125 },
+    { id: "p1-escalera", nombre: "Escaleras", categoria: "servicios", x: 360, y: 100, anchoPx: 100, altoPx: 128 },
+    { id: "p1-pasillo", nombre: "Pasillo central", categoria: "servicios", x: 360, y: 228, anchoPx: 100, altoPx: 364 },
+  ],
+};
+
+export const segundoPiso: Planta = {
+  id: "segundo-piso",
+  nombre: "Segundo Piso",
+  assetPath: "/planos/segundo-piso.svg",
+  viewBox,
+  metrosPorPx: 0.4,
+  zonas: [
+    { id: "p2-aula-9", nombre: "Aula 9", categoria: "aula", x: 28, y: 116, anchoPx: 328, altoPx: 100 },
+    { id: "p2-aula-10", nombre: "Aula 10", categoria: "aula", x: 28, y: 216, anchoPx: 328, altoPx: 100 },
+    { id: "p2-laboratorio-ciencias", nombre: "Laboratorio de Ciencias", categoria: "laboratorio", x: 28, y: 316, anchoPx: 328, altoPx: 100 },
+    { id: "p2-aula-musica", nombre: "Aula de Música", categoria: "servicios", x: 28, y: 416, anchoPx: 328, altoPx: 100 },
+    { id: "p2-banos", nombre: "Baños", categoria: "banos", x: 28, y: 516, anchoPx: 328, altoPx: 100 },
+    { id: "p2-aula-11", nombre: "Aula 11", categoria: "aula", x: 464, y: 116, anchoPx: 328, altoPx: 125 },
+    { id: "p2-aula-12", nombre: "Aula 12", categoria: "aula", x: 464, y: 241, anchoPx: 328, altoPx: 125 },
+    { id: "p2-hemeroteca", nombre: "Hemeroteca", categoria: "biblioteca", x: 464, y: 366, anchoPx: 328, altoPx: 125 },
+    { id: "p2-sala-investigacion", nombre: "Sala de Investigación", categoria: "servicios", x: 464, y: 491, anchoPx: 328, altoPx: 125 },
+    { id: "p2-escalera", nombre: "Escaleras", categoria: "servicios", x: 360, y: 100, anchoPx: 100, altoPx: 128 },
+    { id: "p2-pasillo", nombre: "Pasillo central", categoria: "servicios", x: 360, y: 228, anchoPx: 100, altoPx: 364 },
+  ],
+};
+
+export const plantas: Planta[] = [plantaBaja, primerPiso, segundoPiso];
 
 export function obtenerPlanta(id?: string): Planta {
   return plantas.find((p) => p.id === id) ?? plantaBaja;
