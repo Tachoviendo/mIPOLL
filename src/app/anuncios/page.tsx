@@ -1,9 +1,15 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
 
 import { AdminLogin } from "@/components/AdminLogin";
 import { NovedadTransporteForm } from "@/components/NovedadTransporteForm";
+import { RequireRole } from "@/components/RequireRole";
+import {
+  SelectorDestinatario,
+  type DestinatarioSeleccionado,
+} from "@/components/SelectorDestinatario";
 import { anuncios } from "@/data/ejemplo";
 import { novedadesTransporte } from "@/data/novedades";
 import { lineas } from "@/data/transporte";
@@ -14,6 +20,8 @@ import { formatearFecha } from "@/lib/date";
  * Incluye formulario de publicación para administradores.
  */
 export default function AnunciosPage() {
+  const [destinatarios, setDestinatarios] = useState<DestinatarioSeleccionado[]>([]);
+
   // Combinar anuncios y novedades, ordenar por fecha descendente
   const todosLosAnuncios = [
     ...anuncios.map((a) => ({ ...a, tipo: "anuncio" as const, lineaId: undefined })),
@@ -72,6 +80,24 @@ export default function AnunciosPage() {
 
         {/* Formulario de publicación (solo admin) */}
         <NovedadTransporteForm />
+
+        {/* Nuevo aviso: selección de destinatarios (solo administración) */}
+        <RequireRole roles={["administracion"]}>
+          <section className="rounded-lg border border-black/[.08] bg-white p-4 dark:border-white/[.145] dark:bg-zinc-900">
+            <h2 className="mb-3 text-lg font-semibold text-zinc-950 dark:text-zinc-50">
+              Nuevo aviso
+            </h2>
+            <SelectorDestinatario onSeleccionar={setDestinatarios} />
+            {destinatarios.length > 0 && (
+              <p className="mt-3 text-sm text-zinc-600 dark:text-zinc-400">
+                Enviando a:{" "}
+                {destinatarios
+                  .map((d) => (d.tipo === "curso" ? `Curso ${d.data.nombre}` : d.data.nombre))
+                  .join(", ")}
+              </p>
+            )}
+          </section>
+        </RequireRole>
 
         <div className="flex flex-col gap-3">
           {todosLosAnuncios.length === 0 ? (
