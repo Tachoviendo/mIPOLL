@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 import { CategoriaForoCard } from "@/components/CategoriaForoCard";
+import { EstadoVacio } from "@/components/EstadoVacio";
 import { HiloForoRow } from "@/components/HiloForoRow";
 import {
   buscarHilos,
@@ -115,9 +116,11 @@ export default async function ForosPage({ searchParams }: ForosPageProps) {
                   />
                 ))
               ) : (
-                <p className="px-4 py-8 text-center text-sm text-zinc-500">
-                  No encontramos hilos con esos criterios.
-                </p>
+                <EstadoVacio
+                  icono="busqueda"
+                  titulo="No encontramos hilos con esos criterios"
+                  descripcion="Probá con otras palabras clave o cambiá de categoría."
+                />
               )}
             </div>
           )}

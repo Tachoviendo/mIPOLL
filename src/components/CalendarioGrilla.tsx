@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import { EstadoVacio } from "@/components/EstadoVacio";
 import {
   type EventoCalendario,
   type TipoEvento,
@@ -137,6 +138,13 @@ export function CalendarioGrilla({
       </div>
 
       {/* Grilla */}
+      {eventosFiltrados.length === 0 ? (
+        <EstadoVacio
+          icono="calendario"
+          titulo="Todavía no hay eventos para mostrar"
+          descripcion="No se encontraron eventos con los filtros seleccionados. Probá sacar filtros o elegir otro mes."
+        />
+      ) : (
       <div className="grid grid-cols-7 rounded-xl border border-black/[.08] dark:border-white/[.145] overflow-hidden">
         {/* Encabezados de días */}
         {DIAS_CORTOS.map((dia) => (
@@ -208,6 +216,7 @@ export function CalendarioGrilla({
           );
         })}
       </div>
+      )}
     </div>
   );
 }
