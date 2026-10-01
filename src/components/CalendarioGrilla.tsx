@@ -57,6 +57,7 @@ function eventosDelDia(eventos: EventoCalendario[], fecha: Date): EventoCalendar
 type CalendarioGrillaProps = {
   eventos?: EventoCalendario[];
   filtros?: TipoEvento[];
+  cursoGrupo?: string;
   onEventoClick?: (evento: EventoCalendario) => void;
 };
 
@@ -70,9 +71,13 @@ export function CalendarioGrilla({
   const [anioActual, setAnioActual] = useState(hoy.getFullYear());
 
   const eventosFiltrados = useMemo(() => {
-    if (filtros.length === 0) return eventos;
-    return eventos.filter((ev) => filtros.includes(ev.tipo));
-  }, [eventos, filtros]);
+    if (filtros.length === 0 && !cursoGrupo) return eventos;
+    return eventos.filter((ev) => {
+      const coincideTipo = filtros.length === 0 || filtros.includes(ev.tipo);
+      const coincideCurso = !cursoGrupo || ev.cursoGrupo === cursoGrupo;
+      return coincideTipo && coincideCurso;
+    });
+  }, [eventos, filtros, cursoGrupo]);
 
   const dias = useMemo(() => diasDelMes(anioActual, mesActual), [anioActual, mesActual]);
 
