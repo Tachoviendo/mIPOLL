@@ -12,7 +12,7 @@ export default function MapaPage() {
             Mapa del liceo
           </h1>
           <p className="mt-4 text-base leading-7 text-zinc-600 dark:text-zinc-400">
-            Tocá un punto de interés para orientarte dentro del edificio.
+            Buscá un ambiente por nombre o tocá un punto de interés para orientarte dentro del edificio.
           </p>
         </header>
 
