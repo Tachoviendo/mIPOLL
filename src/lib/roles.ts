@@ -38,3 +38,10 @@ export function puedeParticiparEnForos(rol: Rol): boolean {
 export function puedeModerarForos(rol: Rol): boolean {
   return rol === "administracion";
 }
+
+// GR-02 (Mis grupos): Administración tiene visión institucional y ve TODOS los
+// grupos del liceo (listado completo + detalle en lectura/supervisión). El
+// resto de roles ve solo los grupos donde participa como miembro.
+export function puedeVerTodosLosGrupos(rol: Rol): boolean {
+  return rol === "administracion";
+}
